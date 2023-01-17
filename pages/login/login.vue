@@ -81,7 +81,7 @@
                         <!-- 账号密码 -->
                         <block v-if="current_opt_type == 'login_username'">
                             <input type="text" placeholder="用户名/手机/邮箱" maxlength="60" name="accounts" class="form-item margin-vertical-main wh-auto">
-                            <input type="text" placeholder="登录密码" minlength="6" maxlength="18" name="pwd" password="true" class="form-item margin-vertical-main wh-auto">
+                            <input type="text" placeholder="登录密码" minlength="6" maxlength="18" name="passWord" password="true" class="form-item margin-vertical-main wh-auto">
                             <view  v-if="home_user_login_img_verify_state == 1" class="verify pr margin-vertical-main">
                                 <input type="text" placeholder="验证码" name="verify" maxlength="4" :value="form_input_image_verify_value" @input="form_input_image_verify_event">
                                 <image v-if="(verify_image_url || null) != null" :src="verify_image_url" class="verify-image pa" mode="aspectFit" data-type="user_login" @tap="image_verify_event"></image>
@@ -157,7 +157,7 @@
                         <!-- 账号密码 -->
                         <block v-if="current_opt_type == 'reg_username'">
                             <input type="text" placeholder="用户名" maxlength="60" name="accounts" class="form-item margin-vertical-main wh-auto">
-                            <input type="text" placeholder="登录密码" minlength="6" maxlength="18" name="pwd" password="true" class="form-item margin-vertical-main wh-auto">
+                            <input type="text" placeholder="登录密码" minlength="6" maxlength="18" name="passWord" password="true" class="form-item margin-vertical-main wh-auto">
                             <view  v-if="home_user_register_img_verify_state == 1" class="verify pr margin-vertical-main">
                                 <input type="text" placeholder="验证码" name="verify" maxlength="4" :value="form_input_image_verify_value" @input="form_input_image_verify_event">
                                 <image v-if="(verify_image_url || null) != null" :src="verify_image_url" class="verify-image pa" mode="aspectFit" data-type="user_reg" @tap="image_verify_event"></image>
@@ -170,7 +170,7 @@
                                 <input type="number" placeholder="验证码" name="verify" maxlength="4">
                                 <button :class="'verify-submit pa round br text-size-sm cr-base ' + (verify_disabled ? 'sub-disabled' : '')" type="default" hover-class="none" size="mini" :loading="verify_loading" :disabled="verify_disabled" @tap="verify_send_event">{{verify_submit_text}}</button>
                             </view>
-                            <input type="text" placeholder="登录密码" minlength="6" maxlength="18" name="pwd" password="true" class="form-item margin-vertical-main wh-auto">
+                            <input type="text" placeholder="登录密码" minlength="6" maxlength="18" name="passWord" password="true" class="form-item margin-vertical-main wh-auto">
                         </block>
                         <!-- 邮箱 -->
                         <block v-if="current_opt_type == 'reg_email'">
@@ -179,7 +179,7 @@
                                 <input type="number" placeholder="验证码" name="verify" maxlength="4">
                                 <button :class="'verify-submit pa round br text-size-sm cr-base ' + (verify_disabled ? 'sub-disabled' : '')" type="default" hover-class="none" size="mini" :loading="verify_loading" :disabled="verify_disabled" @tap="verify_send_event">{{verify_submit_text}}</button>
                             </view>
-                            <input type="text" placeholder="登录密码" minlength="6" maxlength="18" name="pwd" password="true" class="form-item margin-vertical-main wh-auto">
+                            <input type="text" placeholder="登录密码" minlength="6" maxlength="18" name="passWord" password="true" class="form-item margin-vertical-main wh-auto">
                         </block>
                         <!-- 协议 -->
                         <view class="margin-top-xxxl cr-gray">
@@ -225,7 +225,7 @@
                             <input type="number" placeholder="验证码" name="verify" maxlength="4">
                             <button :class="'verify-submit pa round br text-size-sm cr-base ' + (verify_disabled ? 'sub-disabled' : '')" type="default" hover-class="none" size="mini" :loading="verify_loading" :disabled="verify_disabled" @tap="verify_send_event">{{verify_submit_text}}</button>
                         </view>
-                        <input type="text" placeholder="设置登录密码" minlength="6" maxlength="18" name="pwd" password="true" class="form-item margin-vertical-main wh-auto">
+                        <input type="text" placeholder="设置登录密码" minlength="6" maxlength="18" name="passWord" password="true" class="form-item margin-vertical-main wh-auto">
                         <button class="bg-main br-main cr-white round text-size margin-top-xxxl" form-type="submit" type="default" hover-class="none" :loading="form_submit_loading" :disabled="form_submit_loading">确认提交</button>
                         <view class="margin-top-xxxl padding-top-xxxl padding-horizontal-main padding-bottom-main">
                             <!-- #ifdef MP -->
@@ -921,7 +921,7 @@
                 }
                 if(this.current_opt_type == 'login_username') {
                     validation.push({fields: 'accounts', msg: '请输入账号'});
-                    validation.push({fields: 'pwd', msg: '请输入密码'});
+                    validation.push({fields: 'passWord', msg: '请输入密码'});
                 }
                 if(this.current_opt_type == 'login_sms' || this.current_opt_type == 'login_email' || (this.current_opt_type == 'login_username' && this.home_user_login_img_verify_state == 1)) {
                     validation.push({fields: 'verify', msg: '请输入验证码'});
@@ -992,7 +992,7 @@
                 }
                 if(this.current_opt_type == 'reg_username') {
                     validation.push({fields: 'accounts', msg: '请输入账号'});
-                    validation.push({fields: 'pwd', msg: '请输入密码'});
+                    validation.push({fields: 'passWord', msg: '请输入密码'});
                 }
                 if(this.current_opt_type == 'reg_sms' || this.current_opt_type == 'reg_email' || (this.current_opt_type == 'reg_username' && this.home_user_register_img_verify_state == 1)) {
                     validation.push({fields: 'verify', msg: '请输入验证码'});
@@ -1061,7 +1061,7 @@
                 var validation = [
                     {fields: 'accounts', msg: '请输入手机或邮箱'},
                     {fields: 'verify', msg: '请输入验证码'},
-                    {fields: 'pwd', msg: '请设置密码'}
+                    {fields: 'passWord', msg: '请设置密码'}
                 ];
                 if (app.globalData.fields_check(e.detail.value, validation)) {
                     // 网络请求
@@ -1115,7 +1115,14 @@
             
             // 登录和注册成功回调处理
             user_success_handle(res) {
-                if (res.data.code == 0 && (res.data.data || null) != null) {
+				console.log("这里登陆成功"+JSON.stringify(res.data));
+				console.log("这里登陆成功"+JSON.stringify(res.data.code));
+				console.log("这里登陆成功"+JSON.stringify(res.data.data));
+				console.log("这里登陆成功"+JSON.stringify(res.data.data));
+				console.log("这里登陆成功"+JSON.stringify(res.data.data));
+				
+                if (res.data.code === "0" && (res.data.data || null) != null) {
+					console.log("进入if判断");
                     // 清除定时任务并存储用户信息
                     clearInterval(this.temp_clear_time);
                     uni.setStorageSync(app.globalData.data.cache_user_info_key, res.data.data);
