@@ -139,7 +139,7 @@
                             <!-- #endif -->
                             <!-- 注册 -->
                             <view v-if="(home_user_reg_type || null) != null && home_user_reg_type.length > 0" class="margin-bottom-xxxl tc">
-                                <text class="cr-main-pair round padding-top-xs padding-bottom-xs padding-horizontal-main" data-value="reg" @tap="opt_form_event">还没账号？立即注册</text>
+                                <text class="cr-main-pair round padding-top-xs padding-bottom-xs padding-horizontal-main" data-value="reg" @tap="opt_form_event">还没账号？立即注册Test</text>
                             </view>
                             <!-- 登录方式选择 -->
                             <view v-if="(home_user_login_type || null) != null && home_user_login_type.length > 0" class="opt-type-list margin-bottom-xl tc">
@@ -268,7 +268,7 @@
                             <button class="bg-yellow br-yellow cr-white round" type="default" size="mini" hover-class="none">取消</button>
                         </navigator>
                         <!-- #ifdef MP-WEIXIN || MP-TOUTIAO -->
-                        <button class="margin-left-lg bg-green br-green cr-white round" type="default" size="mini" @tap="get_user_info_event" @click="customLogin">使用授权自动登录</button>
+                        <button class="margin-left-lg bg-green br-green cr-white round" type="default" size="mini" @tap="get_user_info_event" >使用授权自动登录Test</button>
                         <!-- #endif -->
                         <!-- #ifdef MP-QQ || MP-BAIDU || MP-KUAISHOU -->
                         <button class="margin-left-lg bg-green br-green cr-white round" type="default" size="mini" open-type="getUserInfo" @getuserinfo="get_user_info_event">使用授权自动登录</button>
@@ -284,7 +284,7 @@
                         </view>
                         <!-- 注册 -->
                         <view v-if="(home_user_reg_type || null) != null && home_user_reg_type.length > 0" class="margin-bottom-xl tc">
-                            <text class="cr-main-pair round padding-top-xs padding-bottom-xs padding-horizontal-main" data-value="reg" @tap="opt_form_event">还没账号？注册账号</text>
+                            <text class="cr-main-pair round padding-top-xs padding-bottom-xs padding-horizontal-main" data-value="reg" @tap="opt_form_event">还没账号？注册账号Test</text>
                         </view>
                     </view>
                 </view>
@@ -427,16 +427,7 @@
         },
 
         methods: {
-			// 自定义登录方法
-			customLogin(){
-				console.log("调用了登录方法");
-				uni.request({
-					url: app.globalData.get_request_url("login", "user"),
-					method: 'GET',
-					dataType: 'json',
-				})
-			},
-			//自定义登录结束
+			
             // 数据初始化
             init() {
                 // 缓存初始化配置
@@ -1037,7 +1028,7 @@
                         form_submit_loading: true
                     });
                     uni.request({
-                        url: app.globalData.get_request_url('reg', 'user'),
+                        url: app.globalData.get_request_url('register', 'user'),
                         method: 'POST',
                         data: e.detail.value,
                         dataType: 'json',

@@ -36,8 +36,8 @@
                     </view>
                     <!-- #endif -->
                     <view class="padding-top-xxl padding-bottom-xxl padding-right-xxxl arrow-right br-b" @tap="remove_user_cache_event">
-                        <text>清除缓存</text>
-                        <text class="fr cr-grey">点击清除</text>
+                        <text>用户退出</text>
+                        <text class="fr cr-grey">点击退出</text>
                     </view>
                     <view v-if="(common_app_customer_service_tel || null) != null" class="padding-top-xxl padding-bottom-xxl padding-right-xxxl arrow-right br-b" @tap="call_event">
                         <text>客服电话</text>

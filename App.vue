@@ -1566,7 +1566,7 @@
                 uni.removeStorageSync(this.data.cache_user_info_key);
 
                 // 非小程序则两秒后回到首页
-                this.showToast('清除成功', 'success');
+                this.showToast('退出成功', 'success');
                 var url = this.data.tabbar_pages[0];
                 setTimeout(function() {
                     uni.switchTab({url: url});
